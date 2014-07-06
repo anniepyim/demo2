@@ -1,3 +1,5 @@
+{"name": "parent",
+ "children": [
 {
  "name": "flare",
  "children": [
@@ -377,4 +379,6 @@
    ]
   }
  ]
+}
+]
 }
