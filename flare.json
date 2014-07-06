@@ -377,12 +377,4 @@
    ]
   }
  ]
-},
-{"name": "clustereeee",
-     "children": [
-      {"name": "eAgglomerativeCluster", "size": 3938},
-      {"name": "eeCeommunityStructure", "size": 3812},
-      {"name": "eeHierarchicalCluster", "size": 6714},
-      {"name": "eeMergeEdge", "size": 743}
-     ]
 }
