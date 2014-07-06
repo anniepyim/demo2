@@ -1,1 +1,45 @@
+<<<<<<< HEAD
 {"name":"parent","children":[{"name":" ","children":[{"name":"Tcfcp2l13","value":1},{"name":" ","children":[{"name":"Tcfcp2l1","value":1},{"name":"Tcfcp2l12","value":1}]}]},{"name":" ","children":[{"name":"Esrrb3","value":1},{"name":" ","children":[{"name":"Esrrb","value":1},{"name":"Esrrb2","value":1}]}]},{"name":" ","children":[{"name":" ","children":[{"name":"Nanog3","value":1},{"name":"Nanog&Nanog2","value":2}]},{"name":" ","children":[{"name":"Sox23&Sox2&Sox22","value":3},{"name":"Klf43&Klf4&Klf42","value":3}]}]}]}
+=======
+{"name":"parent",
+ "children":[
+   {"name":"",
+   "children":[
+     {"name":"Tcfcp2l13","value":1},
+     {"name":"",
+     "children":[
+       {"name":"Tcfcp2l1","value":1},
+       {"name":"Tcfcp2l12","value":1}
+       ]
+      }
+    ]
+  },
+    {"name":"",
+    "children":[
+      {"name":"Esrrb3","value":1},
+      {"name":"","children":[
+        {"name":"Esrrb","value":1},
+        {"name":"Esrrb2","value":1}
+        ]
+      }
+    ]
+  },
+ {"name":"",
+ "children":[
+   {"name":"",
+   "children":[
+     {"name":"Nanog3","value":1},
+     {"name":"Nanog&Nanog2","value":2}
+     ]
+    },
+    {"name":"",
+    "children":[
+      {"name":"Sox23&Sox2&Sox22","value":3},
+      {"name":"Klf43&Klf4&Klf42","value":3}
+      ]
+     }
+    ]
+   }
+  ]
+}
+>>>>>>> FETCH_HEAD
