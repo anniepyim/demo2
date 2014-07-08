@@ -16,8 +16,8 @@ treeJSON = d3.json("test.json", function(error, treeData) {
     var root;
 
     // size of the diagram
-    var viewerWidth = 1000;//$(document).width();
-    var viewerHeight = 500;//$(document).height();
+    var viewerWidth = 1200;//$(document).width();
+    var viewerHeight = 400;//$(document).height();
 
     var tree = d3.layout.tree()
         .size([viewerHeight, viewerWidth]);
