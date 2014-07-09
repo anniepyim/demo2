@@ -16,6 +16,8 @@ treeJSON = d3.json("test.json", function(error, treeData) {
     var i = 0;
     var duration = 750;
     var root;
+    
+    testchild=duration;
 
     // size of the diagram
     var viewerWidth = 1200;//$(document).width();
@@ -392,4 +394,4 @@ treeJSON = d3.json("test.json", function(error, treeData) {
 
 var colour1 = "purple";
 	var colour2 = "pink";
-	document.write(testchild);
+	document.write('<p>' + testchild + </p>');
