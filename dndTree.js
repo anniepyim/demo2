@@ -390,7 +390,6 @@ treeJSON = d3.json("test.json", function(error, treeData) {
     centerNode(root);
 });
 
-function sayHello() {
-    document.getElementById('hello').innerHTML = "ff";
-    }
-    window.onload = sayHello;
+var colour1 = "purple";
+	var colour2 = "pink";
+	document.write('<p>colour1: ' + colour1 + '<br>colour2: ' + colour2 + '</p>');
