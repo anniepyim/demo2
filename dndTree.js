@@ -1,3 +1,8 @@
+    function sayHello() {
+    document.getElementById('hello').innerHTML = 'Hello World';
+    }
+    window.onload = sayHello;
+
 // Get JSON data
 treeJSON = d3.json("test.json", function(error, treeData) {
 
@@ -28,10 +33,6 @@ treeJSON = d3.json("test.json", function(error, treeData) {
             return [d.y, d.x];
         });
         
-    function sayHello() {
-    document.getElementById('hello').innerHTML = 'Hello World';
-    }
-    window.onload = sayHello;
 
     // A recursive helper function for performing some setup by walking through all nodes
 
