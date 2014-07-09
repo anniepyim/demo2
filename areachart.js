@@ -48,10 +48,13 @@ var focus = svg.append("g")
 var context = svg.append("g")
     .attr("class", "context")
     .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
+    
 
+								
 d3.csv("Nanog-avg.csv", type, function(error, data) {
+
   x.domain(d3.extent(data.map(function(d) { return d.Location; })));
-  y.domain([0, 20/*d3.max(data.map(function(d) { return d.value; }))*1.2*/]);
+  y.domain([0, d3.max(data,(function(d) { return d.value; }))]);
   x2.domain(x.domain());
   y2.domain(y.domain());
 
