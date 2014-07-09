@@ -51,7 +51,7 @@ var context = svg.append("g")
 
 d3.csv("Nanog-avg.csv", type, function(error, data) {
   x.domain(d3.extent(data.map(function(d) { return d.Location; })));
-  y.domain([0, /*d3.max(data.map(function(d) { return d.value; }))*/20]);
+  y.domain([0, d3.max(data.map(function(d) { return d.value; }))*1.2]);
   x2.domain(x.domain());
   y2.domain(y.domain());
 
