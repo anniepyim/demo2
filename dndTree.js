@@ -1,5 +1,5 @@
 // Get JSON data
-var testchild;
+var testchild = 1500;
 
 treeJSON = d3.json("test.json", function(error, treeData) {
 
@@ -14,10 +14,9 @@ treeJSON = d3.json("test.json", function(error, treeData) {
     var panBoundary = 20; // Within 20px from edges will pan when dragging.
     // Misc. variables
     var i = 0;
-    var duration = 750;
+    var duration = testchild;
     var root;
     
-    testchild=duration;
 
     // size of the diagram
     var viewerWidth = 1200;//$(document).width();
