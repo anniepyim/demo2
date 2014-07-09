@@ -392,10 +392,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
     
     var colour1 = "purple";
 	var colour2 = "pink";
-	document.write('<p>' + testchild + '</p>');
+	document.write('<p>' + colour1 + '</p>');
 
 });
 
-var colour1 = "purple";
-	var colour2 = "pink";
-	document.write('<p>' + testchild + '</p>');
