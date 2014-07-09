@@ -63,9 +63,11 @@
    shape-rendering: crispEdges;
   }
 </style>
-<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<!--<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="dndTree.js"></script>-->
 <script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="dndTree.js"></script>
+
+<body>
 <script>
 
 var margin = {top: 10, right: 10, bottom: 100, left: 40},
@@ -101,7 +103,7 @@ var area2 = d3.svg.area()
     .y0(height2)
     .y1(function(d) { return y2(d.price); });
 
-var svg = d3.select("#area-chart").append("svg")
+var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom);
 
@@ -170,8 +172,7 @@ function type(d) {
 }
 
 </script>
-<body>
-    <div id="tree-container" style="text-align: center;"> </div>
+    <!--<div id="tree-container" style="text-align: center;"> </div>
     <div id="area-chart" style="text-align: center;"> </div>
 </body>
-</html>
+</html>-->
