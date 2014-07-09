@@ -39,7 +39,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
         visitFn(parent);
 
         var children = childrenFn(parent);
-        testchild = children[0];
+        //testchild = children[0];
         if (children) {
             var count = children.length;
             for (var i = 0; i < count; i++) {
