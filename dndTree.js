@@ -391,6 +391,6 @@ treeJSON = d3.json("test.json", function(error, treeData) {
 });
 
 function sayHello() {
-    document.getElementById('hello').innerHTML = testchild;
+    document.getElementById('hello').innerHTML = "f";
     }
     window.onload = sayHello;
