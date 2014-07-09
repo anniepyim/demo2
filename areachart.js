@@ -51,7 +51,7 @@ var context = svg.append("g")
     
 
 								
-d3.csv("Nanog-avg.csv", type, function(error, data) {
+d3.csv("Nanog-avg.csv", function(error, data) {
 
   x.domain(d3.extent(data.map(function(d) { return d.Location; })));
   y.domain([0, d3.max(data,(function(d) { return +d.value; }))]);
@@ -94,10 +94,4 @@ function brushed() {
   x.domain(brush.empty() ? x2.domain() : brush.extent());
   focus.select(".area").attr("d", area);
   focus.select(".x.axis").call(xAxis);
-}
-
-function type(d) {
-  d.Location = d.Location;
-  d.price = +d.price;
-  return d;
 }
