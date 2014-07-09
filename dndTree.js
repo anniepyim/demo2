@@ -523,6 +523,6 @@ treeJSON = d3.json("test.json", function(error, treeData) {
 });
 
 function sayHello() {
-    document.getElementById('hello').innerHTML = 'Hello World';
+    document.getElementById('hello').innerHTML = 'Bye World';
     }
     window.onload = sayHello;
