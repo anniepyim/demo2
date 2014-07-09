@@ -1,5 +1,5 @@
 // Get JSON data
-var testchild=700;
+var testchild;
 
 treeJSON = d3.json("test.json", function(error, treeData) {
 
