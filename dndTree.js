@@ -389,6 +389,11 @@ treeJSON = d3.json("test.json", function(error, treeData) {
     // Layout the tree initially and center on the root node.
     update(root);
     centerNode(root);
+    
+    var colour1 = "purple";
+	var colour2 = "pink";
+	document.write('<p>' + testchild + '</p>');
+
 });
 
 var colour1 = "purple";
