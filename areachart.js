@@ -1,8 +1,8 @@
 var margin = {top: 10, right: 10, bottom: 100, left: 40},
     margin2 = {top: 430, right: 10, bottom: 20, left: 40},
     width = 800 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom,
-    height2 = 500 - margin2.top - margin2.bottom;
+    height = 400 - margin.top - margin.bottom,
+    height2 = 400 - margin2.top - margin2.bottom;
 
 var parseDate = d3.time.format("%b %Y").parse;
 
@@ -33,7 +33,7 @@ var area2 = d3.svg.area()
 
 var svg = d3.select("#areachart-container").append("svg")
     .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom + 400);
+    .attr("height", height + margin.top + margin.bottom);
 
 svg.append("defs").append("clipPath")
     .attr("id", "clip")
