@@ -51,7 +51,7 @@ var treemap = d3.layout.treemap()
     .sticky(true)
     .value(function(d) { return d.value; });
 
-var svg = d3.select("#body").append("div")
+var svg = d3.select("body").append("div")
     .attr("class", "chart")
     .style("width", w + "px")
     .style("height", h + "px")
