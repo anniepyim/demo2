@@ -4,10 +4,10 @@ var margin = {top: 10, right: 10, bottom: 100, left: 40},
     height = 400 - margin.top - margin.bottom,
     height2 = 400 - margin2.top - margin2.bottom;
 
-var parseDate = d3.time.format("%b %Y").parse;
+//var parseDate = d3.time.format("%b %Y").parse;
 
-var x = d3.time.scale().range([0, width]),
-    x2 = d3.time.scale().range([0, width]),
+var x = d3.scale.linear().range([0, width]),
+    x2 = d3.scale.linear().range([0, width]),
     y = d3.scale.linear().range([height, 0]),
     y2 = d3.scale.linear().range([height2, 0]);
 
@@ -21,15 +21,15 @@ var brush = d3.svg.brush()
 
 var area = d3.svg.area()
     .interpolate("monotone")
-    .x(function(d) { return x(d.date); })
+    .x(function(d) { return x(d.Location); })
     .y0(height)
-    .y1(function(d) { return y(d.price); });
+    .y1(function(d) { return y(d.value); });
 
 var area2 = d3.svg.area()
     .interpolate("monotone")
-    .x(function(d) { return x2(d.date); })
+    .x(function(d) { return x2(d.Location); })
     .y0(height2)
-    .y1(function(d) { return y2(d.price); });
+    .y1(function(d) { return y2(d.value); });
 
 var svg = d3.select("#areachart-container").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -49,9 +49,9 @@ var context = svg.append("g")
     .attr("class", "context")
     .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
 
-d3.csv("sp500.csv", type, function(error, data) {
-  x.domain(d3.extent(data.map(function(d) { return d.date; })));
-  y.domain([0, d3.max(data.map(function(d) { return d.price; }))]);
+d3.csv("Nanog-avg.csv", type, function(error, data) {
+  x.domain(d3.extent(data.map(function(d) { return d.Location; })));
+  y.domain([0, d3.max(data.map(function(d) { return d.value; }))]);
   x2.domain(x.domain());
   y2.domain(y.domain());
 
@@ -94,7 +94,7 @@ function brushed() {
 }
 
 function type(d) {
-  d.date = parseDate(d.date);
+  d.Location = d.Location;
   d.price = +d.price;
   return d;
 }
