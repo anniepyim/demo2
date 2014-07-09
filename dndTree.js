@@ -27,6 +27,11 @@ treeJSON = d3.json("test.json", function(error, treeData) {
         .projection(function(d) {
             return [d.y, d.x];
         });
+        
+    function sayHello() {
+    document.getElementById('hello').innerHTML = 'Hello World';
+    }
+    window.onload = sayHello;
 
     // A recursive helper function for performing some setup by walking through all nodes
 
