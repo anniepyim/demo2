@@ -19,6 +19,8 @@ var brush = d3.svg.brush()
     .x(x2)
     .on("brush", brushed);
 
+var brushextent;
+
 var area = d3.svg.area()
     .interpolate("monotone")
     .x(function(d) { return x(d.Location); })
@@ -94,8 +96,10 @@ function brushed() {
   x.domain(brush.empty() ? x2.domain() : brush.extent());
   focus.select(".area").attr("d", area);
   focus.select(".x.axis").call(xAxis);
+  brushextent = brush.extent();
+}
 
-  var csvString = brush.extent();
+  var csvString = brushextent;
   var a         = document.createElement('a');
   a.href        = 'data:attachment/csv,' + csvString;
   a.target      = '_blank';
@@ -103,4 +107,3 @@ function brushed() {
 
   document.body.appendChild(a);
   a.click(); 
-}
