@@ -10,7 +10,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
     var panBoundary = 20; // Within 20px from edges will pan when dragging.
     // Misc. variables
     var i = 0;
-    var duration = 200;
+    var duration = 700;
     var root;
     
     // size of the diagram
@@ -212,7 +212,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
             });
 
         // Enter any new nodes at the parent's previous position.
-        var nodeEnter = node.enter().append("g")
+        /*var nodeEnter = node.enter().append("g")
             //.call(dragListener)
             .attr("class", "node")
             .attr("transform", function(d) {
@@ -239,7 +239,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
             .text(function(d) {
                 return d.name;
             })
-            .style("fill-opacity", 0);
+            .style("fill-opacity", 0);*/
 
 
         // Update the text to reflect whether node has children or not.
@@ -258,7 +258,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
         node.select("circle.nodeCircle")
             .attr("r", 4.5)
             .style("fill", function(d) {
-                return d._children ? "yellow" : "grey";
+                return d._children ? "lightsteelblue" : "#fff";
             });
 
         // Transition nodes to their new position.
