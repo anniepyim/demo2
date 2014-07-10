@@ -107,7 +107,7 @@ for(var i=0, l=A.length; i<l; ++i){
     csvRows.push(A[i].join(','));
 }
 
-var csvString = csvRows.join("%0A");
+var csvString = "100";
 var a         = document.createElement('a');
 a.href        = 'data:attachment/csv,' + csvString;
 a.target      = '_blank';
