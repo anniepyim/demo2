@@ -1,10 +1,11 @@
-var margin = {top: 10, right: 10, bottom: 100, left: 40},
-    margin2 = {top: 230, right: 10, bottom: 20, left: 40},
-    width = 900 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom,
-    height2 = 300 - margin2.top - margin2.bottom;
+var viewerWidth = $(document).width();
+var viewerHeight = $(document).height();
 
-//var parseDate = d3.time.format("%b %Y").parse;
+var margin = {top: 10, right: 10, bottom: 100, left: 40},
+    margin2 = {top: viewerHeight-100, right: 10, bottom: 20, left: 40},
+    width = viewerWidth - margin.left - margin.right,
+    height = viewerHeight - margin.top - margin.bottom,
+    height2 = viewerHeight - margin2.top - margin2.bottom;
 
 var x = d3.scale.linear().range([0, width]),
     x2 = d3.scale.linear().range([0, width]),
