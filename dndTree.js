@@ -148,7 +148,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
     
     function nameOutput(d){
         if (!d._children){
-            var csvString = d.name;
+            var csvString = d.children.length;
   	        var a = document.createElement('a');
   	        a.href     = 'data:attachment/csv,' + csvString;
   	        a.target   ='_blank';
