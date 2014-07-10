@@ -7,8 +7,8 @@ treeJSON = d3.json("test.json", function(error, treeData) {
     var totalNodes = 0;
     var maxLabelLength = 0;
     // variables for drag/drop
-    var selectedNode = null;
-    var draggingNode = null;
+    //var selectedNode = null;
+    //var draggingNode = null;
     // panning variables
     var panSpeed = 200;
     var panBoundary = 20; // Within 20px from edges will pan when dragging.
@@ -130,7 +130,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
         }
     }
 
-    var overCircle = function(d) {
+    /*var overCircle = function(d) {
         selectedNode = d;
         updateTempConnector();
     };
@@ -165,7 +165,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
         link.attr("d", d3.svg.diagonal());
 
         link.exit().remove();
-    };
+    };*/
 
     // Function to center node when clicked/dropped so node doesn't get lost when collapsing/moving with large amount of children.
 
