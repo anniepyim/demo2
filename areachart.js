@@ -97,7 +97,7 @@ function brushed() {
   
   var A = [['n','sqrt(n)']];
 
-for(var j=1; j<10; ++j){ 
+for(var j=1; j<11; ++j){ 
     A.push([j, Math.sqrt(j)]);
 }
 
