@@ -148,8 +148,8 @@ var graph = d3.csv(csvpath, function(data) {
 
 //The tooltip n selection starts here
   svg.selectAll(".layer")
-    .attr("opacity", 1)
-    /*.on("mouseover", function(d, i) {
+    /*.attr("opacity", 1)
+    .on("mouseover", function(d, i) {
       svg.selectAll(".layer").transition()
       .duration(250)
       .attr("opacity", function(d, j) {
