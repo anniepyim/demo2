@@ -1,10 +1,11 @@
-var margin = {top: 10, right: 10, bottom: 100, left: 40},
-    margin2 = {top: 230, right: 10, bottom: 20, left: 40},
-    width = 900 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom,
-    height2 = 300 - margin2.top - margin2.bottom;
+var viewerWidth = $(document).width()*0.9;
+var viewerHeight = $(document).height()*0.9;
 
-//var parseDate = d3.time.format("%b %Y").parse;
+var margin = {top: 10, right: 10, bottom: 100, left: 40},
+    margin2 = {top: viewerHeight-70, right: 10, bottom: 20, left: 40},
+    width = viewerWidth - margin.left - margin.right,
+    height = viewerHeight - margin.top - margin.bottom,
+    height2 = viewerHeight - margin2.top - margin2.bottom;
 
 var x = d3.scale.linear().range([0, width]),
     x2 = d3.scale.linear().range([0, width]),
@@ -17,7 +18,8 @@ var xAxis = d3.svg.axis().scale(x).orient("bottom"),
 
 var brush = d3.svg.brush()
     .x(x2)
-    .on("brush", brushed);
+    .on("brush", brushed)
+    .on("brushend", brushend);
 
 var area = d3.svg.area()
     .interpolate("monotone")
@@ -31,9 +33,18 @@ var area2 = d3.svg.area()
     .y0(height2)
     .y1(function(d) { return y2(d.value); });
 
-var svg = d3.select("#areachart-container").append("svg")
+var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom);
+    
+var tooltip = d3.select("body")
+    .append("div")
+    .attr("class", "remove")
+    .style("position", "absolute")
+    .style("z-index", "20")
+    .style("visibility", "hidden")
+    .style("top", "30px")
+    .style("left", "55px");
 
 svg.append("defs").append("clipPath")
     .attr("id", "clip")
@@ -88,10 +99,22 @@ d3.csv("Nanog-avg.csv", function(error, data) {
     .selectAll("rect")
       .attr("y", -6)
       .attr("height", height2 + 7);
+      
 });
 
 function brushed() {
   x.domain(brush.empty() ? x2.domain() : brush.extent());
   focus.select(".area").attr("d", area);
   focus.select(".x.axis").call(xAxis);
+}
+
+function brushend(p) {
+  var csvString = brush.extent();
+  var a = document.createElement('a');
+  a.href     = 'data:attachment/csv,' + csvString;
+  a.target   ='_blank';
+  a.download = 'myFile.csv,' + encodeURIComponent(csvString); ;
+  //a.innerHTML = "Click me to download the file.";
+  document.body.appendChild(a);
+  a.click();
 }

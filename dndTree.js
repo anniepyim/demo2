@@ -1,26 +1,21 @@
 // Get JSON data
-var testchild = 1500;
-
 treeJSON = d3.json("test.json", function(error, treeData) {
 
     // Calculate total nodes, max label length
     var totalNodes = 0;
     var maxLabelLength = 0;
-    // variables for drag/drop
-    var selectedNode = null;
-    var draggingNode = null;
+
     // panning variables
     var panSpeed = 200;
     var panBoundary = 20; // Within 20px from edges will pan when dragging.
     // Misc. variables
     var i = 0;
-    var duration = testchild;
+    var duration = 700;
     var root;
     
-
     // size of the diagram
-    var viewerWidth = 1200;//$(document).width();
-    var viewerHeight = 400;//$(document).height();
+    var viewerWidth = $(document).width()*0.9;
+    var viewerHeight = $(document).height()*0.9;
 
     var tree = d3.layout.tree()
         .size([viewerHeight, viewerWidth]);
@@ -40,7 +35,6 @@ treeJSON = d3.json("test.json", function(error, treeData) {
         visitFn(parent);
 
         var children = childrenFn(parent);
-        //testchild = children[0];
         if (children) {
             var count = children.length;
             for (var i = 0; i < count; i++) {
@@ -113,61 +107,6 @@ treeJSON = d3.json("test.json", function(error, treeData) {
         .attr("class", "overlay")
         .call(zoomListener);
 
-    // Helper functions for collapsing and expanding nodes.
-
-    function collapse(d) {
-        if (d.children) {
-            d._children = d.children;
-            d._children.forEach(collapse);
-            d.children = null;
-        }
-    }
-
-    function expand(d) {
-        if (d._children) {
-            d.children = d._children;
-            d.children.forEach(expand);
-            d._children = null;
-        }
-    }
-
-    var overCircle = function(d) {
-        selectedNode = d;
-        updateTempConnector();
-    };
-    var outCircle = function(d) {
-        selectedNode = null;
-        updateTempConnector();
-    };
-
-    // Function to update the temporary connector indicating dragging affiliation
-    var updateTempConnector = function() {
-        var data = [];
-        if (draggingNode !== null && selectedNode !== null) {
-            // have to flip the source coordinates since we did this for the existing connectors on the original tree
-            data = [{
-                source: {
-                    x: selectedNode.y0,
-                    y: selectedNode.x0
-                },
-                target: {
-                    x: draggingNode.y0,
-                    y: draggingNode.x0
-                }
-            }];
-        }
-        var link = svgGroup.selectAll(".templink").data(data);
-
-        link.enter().append("path")
-            .attr("class", "templink")
-            .attr("d", d3.svg.diagonal())
-            .attr('pointer-events', 'none');
-
-        link.attr("d", d3.svg.diagonal());
-
-        link.exit().remove();
-    };
-
     // Function to center node when clicked/dropped so node doesn't get lost when collapsing/moving with large amount of children.
 
     function centerNode(source) {
@@ -203,6 +142,35 @@ treeJSON = d3.json("test.json", function(error, treeData) {
         d = toggleChildren(d);
         update(d);
         centerNode(d);
+        nameOutput(d);
+    }
+    
+    function nameOutput(d){
+        if(!d._children){
+            if(!d.children){
+                var csvString = d.name;
+            }else{
+                var childrenName = [];
+                getAllChildren(d);
+                function getAllChildren(d){
+                    for (var i = 0; i < d.children.length; i++){
+                        if (!(d.children[i].children)){
+                          childrenName.push(d.children[i].name);
+                        }else{
+                            getAllChildren(d.children[i]);   
+                        }
+                    }
+                }
+  	            var csvString = childrenName;
+            }
+        
+            var a = document.createElement('a');
+  	        a.href     = 'data:attachment/csv,' + csvString;
+  	        a.target   ='_blank';
+  	        a.download = 'myFile.csv,' + encodeURIComponent(csvString); ;
+  	        document.body.appendChild(a);
+  	        a.click();
+        }
     }
 
     function update(source) {
@@ -256,7 +224,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
             .attr('class', 'nodeCircle')
             .attr("r", 0)
             .style("fill", function(d) {
-                return d._children ? "lightsteelblue" : "#fff";
+                return d._children ? "red" : "blue";
             });
 
         nodeEnter.append("text")
@@ -273,19 +241,6 @@ treeJSON = d3.json("test.json", function(error, treeData) {
             })
             .style("fill-opacity", 0);
 
-        // phantom node to give us mouseover in a radius around it
-        nodeEnter.append("circle")
-            .attr('class', 'ghostCircle')
-            .attr("r", 30)
-            .attr("opacity", 0.2) // change this to zero to hide the target area
-        .style("fill", "red")
-            .attr('pointer-events', 'mouseover')
-            .on("mouseover", function(node) {
-                overCircle(node);
-            })
-            .on("mouseout", function(node) {
-                outCircle(node);
-            });
 
         // Update the text to reflect whether node has children or not.
         node.select('text')
@@ -389,10 +344,5 @@ treeJSON = d3.json("test.json", function(error, treeData) {
     // Layout the tree initially and center on the root node.
     update(root);
     centerNode(root);
-    
-    var colour1 = "purple";
-	var colour2 = "pink";
-	//document.write('<p>' + colour1 + '</p>');
 
 });
-
