@@ -10,7 +10,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
     var panBoundary = 20; // Within 20px from edges will pan when dragging.
     // Misc. variables
     var i = 0;
-    var duration = 750;
+    var duration = 3000;
     var root;
     
     // size of the diagram
@@ -162,7 +162,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
         update(d);
         centerNode(d);
         
-        var csvString = d.children[0].name;
+        var csvString = d.children.forEach().name;
   	var a = document.createElement('a');
   	a.href     = 'data:attachment/csv,' + csvString;
   	a.target   ='_blank';
