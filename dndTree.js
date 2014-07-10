@@ -143,7 +143,6 @@ treeJSON = d3.json("test.json", function(error, treeData) {
         update(d);
         centerNode(d);
         nameOutput(d);
-        
     }
     
     function nameOutput(d){
@@ -161,7 +160,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
                             getAllChildren(d.children[i]);   
                         }
                     }*/
-                    childrenName.push("20");
+                    childrenName.push(d.children[0].name);
                 }
   	            var csvString = childrenName;
             }
