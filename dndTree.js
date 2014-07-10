@@ -10,7 +10,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
     var panBoundary = 20; // Within 20px from edges will pan when dragging.
     // Misc. variables
     var i = 0;
-    var duration = 200;
+    var duration = 700;
     var root;
     
     // size of the diagram
@@ -225,7 +225,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
             .attr("r", 0)
             .style("fill", function(d) {
                 return d._children ? "red" : "blue";
-            });
+            });*/
 
         nodeEnter.append("text")
             .attr("x", function(d) {
