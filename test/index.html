@@ -157,11 +157,12 @@ var graph = d3.csv(csvpath, function(data) {
         return j != i ? 0.6 : 1;
     })})*/
 
-    //get value according to date
     on("mousemove", function(d, i) {
-      /*mousex = d3.mouse(this);
+      //get mouse coordinates
+      mousex = d3.mouse(this);
       mousex = mousex[0];
-      var invertedx = x.invert(mousex);
+      //get value according to date
+      /*var invertedx = x.invert(mousex);
       invertedx = invertedx.getMonth() + invertedx.getDate();
       var selected = (d.values);
       for (var k = 0; k < selected.length; k++) {
