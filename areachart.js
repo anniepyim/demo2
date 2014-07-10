@@ -2,7 +2,7 @@ var viewerWidth = $(document).width();
 var viewerHeight = $(document).height();
 
 var margin = {top: 10, right: 10, bottom: 100, left: 40},
-    margin2 = {top: viewerHeight-100, right: 10, bottom: 20, left: 40},
+    margin2 = {top: viewerHeight-70, right: 10, bottom: 20, left: 40},
     width = viewerWidth - margin.left - margin.right,
     height = viewerHeight - margin.top - margin.bottom,
     height2 = viewerHeight - margin2.top - margin2.bottom;
