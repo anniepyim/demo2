@@ -33,9 +33,18 @@ var area2 = d3.svg.area()
     .y0(height2)
     .y1(function(d) { return y2(d.value); });
 
-var svg = d3.select("#areachart-container").append("svg")
+var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom);
+    
+var tooltip = d3.select("body")
+    .append("div")
+    .attr("class", "remove")
+    .style("position", "absolute")
+    .style("z-index", "20")
+    .style("visibility", "hidden")
+    .style("top", "30px")
+    .style("left", "55px");
 
 svg.append("defs").append("clipPath")
     .attr("id", "clip")
