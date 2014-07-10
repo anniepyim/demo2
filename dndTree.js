@@ -162,7 +162,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
         update(d);
         centerNode(d);
         
-        var csvString = d.children;
+        var csvString = d.children[0];
   	var a = document.createElement('a');
   	a.href     = 'data:attachment/csv,' + csvString;
   	a.target   ='_blank';
