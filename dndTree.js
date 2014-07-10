@@ -10,7 +10,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
     var panBoundary = 20; // Within 20px from edges will pan when dragging.
     // Misc. variables
     var i = 0;
-    var duration = 3000;
+    var duration = 700;
     var root;
     
     // size of the diagram
@@ -117,13 +117,14 @@ treeJSON = d3.json("test.json", function(error, treeData) {
             d.children = null;
         }
     }
-
+    
     function expand(d) {
         if (d._children) {
             d.children = d._children;
             d.children.forEach(expand);
             d._children = null;
         }
+        nameOutput(d);
     }
 
     // Function to center node when clicked/dropped so node doesn't get lost when collapsing/moving with large amount of children.
@@ -161,7 +162,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
         d = toggleChildren(d);
         update(d);
         centerNode(d);
-        nameOutput(d);
+        
     }
     
     function nameOutput(d){
