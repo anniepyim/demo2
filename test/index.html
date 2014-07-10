@@ -147,7 +147,7 @@ var graph = d3.csv(csvpath, function(data) {
       .call(yAxis.orient("left"));
 
 //The tooltip n selection starts here
-  svg.selectAll(".layer")
+  svg.selectAll(".chart")
     .attr("opacity", 1)
     //control the opacity of different layers
     /*.on("mouseover", function(d, i) {
