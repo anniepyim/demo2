@@ -37,17 +37,17 @@ var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom);
     
-/*var tooltip = d3.select("body")
+var tooltip = d3.select("body")
     .append("div")
     .attr("class", "remove")
     .style("position", "absolute")
     .style("z-index", "20")
     .style("visibility", "hidden")
     .style("top", "30px")
-    .style("left", "55px");*/
-var div = d3.select("body").append("div")   
+    .style("left", "55px");
+/*var div = d3.select("body").append("div")   
     .attr("class", "tooltip")               
-    .style("opacity", 0);
+    .style("opacity", 0);*/
 
 svg.append("defs").append("clipPath")
     .attr("id", "clip")
@@ -76,14 +76,27 @@ d3.csv("Nanog-avg.csv", function(error, data) {
       .datum(data)
       .attr("class", "area")
       .attr("d", area)
-      .on("mouseover", function(d) {      
-            div.transition()        
-                .duration(200)      
-                .style("opacity", .9);      
-            div.html("hi")  
-                .style("left", (d3.event.pageX) + "px")     
-                .style("top", (d3.event.pageY - 28) + "px");    
-            }); 
+      .on("mousemove", function(d, i) {
+        mousex = d3.mouse(this);
+        mousex = mousex[0];
+      /*var invertedx = x.invert(mousex);
+      invertedx = invertedx.getMonth() + invertedx.getDate();
+      var selected = (d.values);
+      for (var k = 0; k < selected.length; k++) {
+        datearray[k] = selected[k].date
+        datearray[k] = datearray[k].getMonth() + datearray[k].getDate();
+      }
+
+      mousedate = datearray.indexOf(invertedx);
+      pro = d.values[mousedate].value;*/
+
+      d3.select(this)
+      .classed("hover", true)
+      .attr("stroke", strokecolor)
+      .attr("stroke-width", "0.5px"), 
+      tooltip.html( "hi" ).style("visibility", "visible");
+      
+    })
 
   focus.append("g")
       .attr("class", "x axis")
