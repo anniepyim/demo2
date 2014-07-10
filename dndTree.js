@@ -212,7 +212,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
             });
 
         // Enter any new nodes at the parent's previous position.
-        /*var nodeEnter = node.enter().append("g")
+        var nodeEnter = node.enter().append("g")
             //.call(dragListener)
             .attr("class", "node")
             .attr("transform", function(d) {
@@ -220,7 +220,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
             })
             .on('click', click);
 
-        nodeEnter.append("circle")
+        /*nodeEnter.append("circle")
             .attr('class', 'nodeCircle')
             .attr("r", 0)
             .style("fill", function(d) {
