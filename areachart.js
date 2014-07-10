@@ -100,7 +100,7 @@ d3.csv("Nanog-avg.csv", function(error, data) {
       .attr("y", -6)
       .attr("height", height2 + 7);
       
-  var vertical = d3.select(".area")
+  var vertical = d3.select("body")
         .append("div")
         .attr("class", "remove")
         .style("position", "absolute")
@@ -113,7 +113,7 @@ d3.csv("Nanog-avg.csv", function(error, data) {
         .style("background", "#fff");
   
   //creating the white line
-  d3.select(".area")
+  d3.select("body")
       .on("mousemove", function(){  
          mousex = d3.mouse(this);
          mousex = mousex[0] + 5;
