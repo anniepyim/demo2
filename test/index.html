@@ -157,7 +157,8 @@ var graph = d3.csv(csvpath, function(data) {
         return j != i ? 0.6 : 1;
     })})*/
 
-    .on("mousemove", function(d, i) {
+    //get value according to date
+    /*.on("mousemove", function(d, i) {
       mousex = d3.mouse(this);
       mousex = mousex[0];
       var invertedx = x.invert(mousex);
@@ -169,7 +170,7 @@ var graph = d3.csv(csvpath, function(data) {
       }
 
       mousedate = datearray.indexOf(invertedx);
-      pro = d.values[mousedate].value;
+      pro = d.values[mousedate].value;*/
 
       d3.select(this)
       .classed("hover", true)
