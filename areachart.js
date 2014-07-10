@@ -106,7 +106,7 @@ d3.csv("Nanog-avg.csv", function(error, data) {
         .style("position", "absolute")
         .style("z-index", "19")
         .style("width", "1px")
-        .style("height", "380px")
+        .style("height", height)
         .style("top", "10px")
         .style("bottom", "30px")
         .style("left", "0px")
