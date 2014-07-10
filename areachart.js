@@ -99,6 +99,23 @@ d3.csv("Nanog-avg.csv", function(error, data) {
     .selectAll("rect")
       .attr("y", -6)
       .attr("height", height2 + 7);
+      
+   d3.select(this)
+      .classed("hover", true)
+      .attr("stroke", #B30000)
+      .attr("stroke-width", "0.5px"), 
+      tooltip.html("hi").style("visibility", "visible");
+      
+    })
+    .on("mouseout", function(d, i) {
+     svg.selectAll(".area")
+      .transition()
+      .duration(250)
+      .attr("opacity", "1");
+      d3.select(this)
+      .classed("hover", false)
+      .attr("stroke-width", "0px"), tooltip.html( "hi" ).style("visibility", "hidden");
+  })
 });
 
 function brushed() {
