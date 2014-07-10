@@ -90,10 +90,10 @@ d3.csv("Nanog-avg.csv", function(error, data) {
       mousedate = datearray.indexOf(invertedx);
       pro = d.values[mousedate].value;*/
 
-      d3.select(this)
-      .classed("hover", true)
-      .attr("stroke", strokecolor)
-      .attr("stroke-width", "0.5px"), 
+      //d3.select(this)
+      //.classed("hover", true)
+      //.attr("stroke", strokecolor)
+      //.attr("stroke-width", "0.5px"), 
       tooltip.html( "hi" ).style("visibility", "visible");
       
     })
