@@ -10,7 +10,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
     var panBoundary = 20; // Within 20px from edges will pan when dragging.
     // Misc. variables
     var i = 0;
-    var duration = 750;
+    var duration = 200;
     var root;
     
     // size of the diagram
@@ -301,10 +301,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
             d.x0 = d.x;
             d.y0 = d.y;
         });
-        
-        if (d._children){
-            nameOutput(d);
-        }
+    
     }
 
     // Append a group which holds all nodes and which the zoom Listener can act upon.
