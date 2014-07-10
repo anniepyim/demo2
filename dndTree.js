@@ -35,7 +35,6 @@ treeJSON = d3.json("test.json", function(error, treeData) {
         visitFn(parent);
 
         var children = childrenFn(parent);
-        //testchild = children[0];
         if (children) {
             var count = children.length;
             for (var i = 0; i < count; i++) {
@@ -148,7 +147,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
     }
     
     function nameOutput(d){
-        if (d._children){
+        if (!d._children){
             var csvString = d.name;
   	        var a = document.createElement('a');
   	        a.href     = 'data:attachment/csv,' + csvString;
