@@ -239,7 +239,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
             .text(function(d) {
                 return d.name;
             })
-            .style("fill-opacity", 0);*/
+            .style("fill-opacity", 0);
 
 
         // Update the text to reflect whether node has children or not.
