@@ -178,7 +178,7 @@ var graph = d3.csv(csvpath, function(data) {
       tooltip.html( "hi" ).style("visibility", "visible");
       
     })
-    .on("mouseout", function(d, i) {
+    /*.on("mouseout", function(d, i) {
      svg.selectAll(".layer")
       .transition()
       .duration(250)
@@ -186,7 +186,7 @@ var graph = d3.csv(csvpath, function(data) {
       d3.select(this)
       .classed("hover", false)
       .attr("stroke-width", "0px"), tooltip.html( "hi" ).style("visibility", "hidden");
-  })
+  })*/
 
 //the tooltip ends here
     
