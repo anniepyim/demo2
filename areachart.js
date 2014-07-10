@@ -101,8 +101,7 @@ d3.csv("Nanog-avg.csv", function(error, data) {
       .attr("height", height2 + 7);
       
       
-  svg.select(".area")
-    .attr("opacity", 1)
+  svg.attr("opacity", 1)
     .on("mousemove", function(d, i) {
       mousex = d3.mouse(this);
       mousex = mousex[0];
@@ -124,15 +123,16 @@ d3.csv("Nanog-avg.csv", function(error, data) {
       tooltip.html( "hi" ).style("visibility", "visible");
     })
     
-    .on("mouseout", function(d, i) {
-     svg.select(".area")
+    //tooltip disappear upon mouseout
+    /*.on("mouseout", function(d, i) {
+     svg.selectAll(".area")
       .transition()
       .duration(250)
       .attr("opacity", "1");
      d3.select(this)
       .classed("hover", false)
       .attr("stroke-width", "0px"), tooltip.html( "hi" ).style("visibility", "hidden");
-  })
+     })*/
       
   var vertical = d3.select("body")
         .append("div")
