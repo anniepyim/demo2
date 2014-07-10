@@ -143,17 +143,20 @@ treeJSON = d3.json("test.json", function(error, treeData) {
         d = toggleChildren(d);
         update(d);
         centerNode(d);
+        nameOutput(d);
         
     }
     
     function nameOutput(d){
-        var csvString = d.name;
-  	    var a = document.createElement('a');
-  	    a.href     = 'data:attachment/csv,' + csvString;
-  	    a.target   ='_blank';
-  	    a.download = 'myFile.csv,' + encodeURIComponent(csvString); ;
-  	    document.body.appendChild(a);
-  	    a.click();
+        if (d._children){
+            var csvString = d.name;
+  	        var a = document.createElement('a');
+  	        a.href     = 'data:attachment/csv,' + csvString;
+  	        a.target   ='_blank';
+  	        a.download = 'myFile.csv,' + encodeURIComponent(csvString); ;
+  	        document.body.appendChild(a);
+  	        a.click();
+        }
     }
 
     function update(source) {
