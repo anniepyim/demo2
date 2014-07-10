@@ -100,6 +100,29 @@ d3.csv("Nanog-avg.csv", function(error, data) {
       .attr("y", -6)
       .attr("height", height2 + 7);
       
+  var vertical = d3.select(".area")
+        .append("div")
+        .attr("class", "remove")
+        .style("position", "absolute")
+        .style("z-index", "19")
+        .style("width", "1px")
+        .style("height", "380px")
+        .style("top", "10px")
+        .style("bottom", "30px")
+        .style("left", "0px")
+        .style("background", "#fff");
+  
+  //creating the white line
+  d3.select(".area")
+      .on("mousemove", function(){  
+         mousex = d3.mouse(this);
+         mousex = mousex[0] + 5;
+         vertical.style("left", mousex + "px" )})
+      .on("mouseover", function(){  
+         mousex = d3.mouse(this);
+         mousex = mousex[0] + 5;
+         vertical.style("left", mousex + "px")});
+      
 });
 
 function brushed() {
