@@ -155,7 +155,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
                 }
             }*/
             
-            var csvString = d.children.length;
+            var csvString = d.name;
   	        var a = document.createElement('a');
   	        a.href     = 'data:attachment/csv,' + csvString;
   	        a.target   ='_blank';
