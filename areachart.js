@@ -94,9 +94,8 @@ function brushed() {
   x.domain(brush.empty() ? x2.domain() : brush.extent());
   focus.select(".area").attr("d", area);
   focus.select(".x.axis").call(xAxis);
-}
-
-var A = [['n','sqrt(n)']];
+  
+  var A = [['n','sqrt(n)']];
 
 for(var j=1; j<10; ++j){ 
     A.push([j, Math.sqrt(j)]);
@@ -115,4 +114,5 @@ a.target      = '_blank';
 a.download    = 'myFile.csv';
 
 document.body.appendChild(a);
-a.click();
+a.click(); 
+}
