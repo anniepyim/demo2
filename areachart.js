@@ -1,4 +1,4 @@
-var viewerWidth = $(document).width()*0.5;
+var viewerWidth = $(document).width()*0.9;
 var viewerHeight = $(document).height()*0.9;
 
 var margin = {top: 10, right: 10, bottom: 100, left: 40},
@@ -37,14 +37,17 @@ var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom);
     
-var tooltip = d3.select("body")
+/*var tooltip = d3.select("body")
     .append("div")
     .attr("class", "remove")
     .style("position", "absolute")
     .style("z-index", "20")
     .style("visibility", "hidden")
     .style("top", "30px")
-    .style("left", "55px");
+    .style("left", "55px");*/
+var div = d3.select("body").append("div")   
+    .attr("class", "tooltip")               
+    .style("opacity", 0);
 
 svg.append("defs").append("clipPath")
     .attr("id", "clip")
@@ -72,7 +75,15 @@ d3.csv("Nanog-avg.csv", function(error, data) {
   focus.append("path")
       .datum(data)
       .attr("class", "area")
-      .attr("d", area);
+      .attr("d", area)
+      .on("mouseover", function(d) {      
+            div.transition()        
+                .duration(200)      
+                .style("opacity", .9);      
+            div.html("hi")  
+                .style("left", (d3.event.pageX) + "px")     
+                .style("top", (d3.event.pageY - 28) + "px");    
+            }); 
 
   focus.append("g")
       .attr("class", "x axis")
