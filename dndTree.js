@@ -4,9 +4,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
     // Calculate total nodes, max label length
     var totalNodes = 0;
     var maxLabelLength = 0;
-    // variables for drag/drop
-    //var selectedNode = null;
-    //var draggingNode = null;
+
     // panning variables
     var panSpeed = 200;
     var panBoundary = 20; // Within 20px from edges will pan when dragging.
@@ -128,43 +126,6 @@ treeJSON = d3.json("test.json", function(error, treeData) {
         }
     }
 
-    /*var overCircle = function(d) {
-        selectedNode = d;
-        updateTempConnector();
-    };
-    var outCircle = function(d) {
-        selectedNode = null;
-        updateTempConnector();
-    };
-
-    // Function to update the temporary connector indicating dragging affiliation
-    var updateTempConnector = function() {
-        var data = [];
-        if (draggingNode !== null && selectedNode !== null) {
-            // have to flip the source coordinates since we did this for the existing connectors on the original tree
-            data = [{
-                source: {
-                    x: selectedNode.y0,
-                    y: selectedNode.x0
-                },
-                target: {
-                    x: draggingNode.y0,
-                    y: draggingNode.x0
-                }
-            }];
-        }
-        var link = svgGroup.selectAll(".templink").data(data);
-
-        link.enter().append("path")
-            .attr("class", "templink")
-            .attr("d", d3.svg.diagonal())
-            .attr('pointer-events', 'none');
-
-        link.attr("d", d3.svg.diagonal());
-
-        link.exit().remove();
-    };*/
-
     // Function to center node when clicked/dropped so node doesn't get lost when collapsing/moving with large amount of children.
 
     function centerNode(source) {
@@ -200,6 +161,14 @@ treeJSON = d3.json("test.json", function(error, treeData) {
         d = toggleChildren(d);
         update(d);
         centerNode(d);
+        
+        var csvString = "hihi";
+  	var a = document.createElement('a');
+  	a.href     = 'data:attachment/csv,' + csvString;
+  	a.target   ='_blank';
+  	a.download = 'myFile.csv,' + encodeURIComponent(csvString); ;
+  	document.body.appendChild(a);
+  	a.click();
     }
 
     function update(source) {
@@ -386,10 +355,6 @@ treeJSON = d3.json("test.json", function(error, treeData) {
     // Layout the tree initially and center on the root node.
     update(root);
     centerNode(root);
-    
-    var colour1 = "purple";
-	var colour2 = "pink";
-	//document.write('<p>' + colour1 + '</p>');
 
 });
 
