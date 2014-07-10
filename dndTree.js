@@ -152,6 +152,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
                 var csvString = d.name;
             }else{
                 var childrenName = [];
+                getAllChildren(d);
                 function getAllChildren(d){
                     for (var i = 0; i < d.children.length; i++){
                         if (!d.children[i].children){
