@@ -1,6 +1,4 @@
 // Get JSON data
-var testchild = 1500;
-
 treeJSON = d3.json("test.json", function(error, treeData) {
 
     // Calculate total nodes, max label length
@@ -14,7 +12,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
     var panBoundary = 20; // Within 20px from edges will pan when dragging.
     // Misc. variables
     var i = 0;
-    var duration = testchild;
+    var duration = 750;
     var root;
     
     // size of the diagram
