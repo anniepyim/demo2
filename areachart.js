@@ -1,4 +1,4 @@
-var viewerWidth = $(document).width()*0.9;
+var viewerWidth = $(document).width()*0.5;
 var viewerHeight = $(document).height()*0.9;
 
 var margin = {top: 10, right: 10, bottom: 100, left: 40},
