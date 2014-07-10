@@ -10,7 +10,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
     var panBoundary = 20; // Within 20px from edges will pan when dragging.
     // Misc. variables
     var i = 0;
-    var duration = 750;
+    var duration = 200;
     var root;
     
     // size of the diagram
@@ -107,24 +107,6 @@ treeJSON = d3.json("test.json", function(error, treeData) {
         .attr("height", viewerHeight)
         .attr("class", "overlay")
         .call(zoomListener);
-
-    // Helper functions for collapsing and expanding nodes.
-
-    /*function collapse(d) {
-        if (d.children) {
-            d._children = d.children;
-            d._children.forEach(collapse);
-            d.children = null;
-        }
-    }
-    
-    function expand(d) {
-        if (d._children) {
-            d.children = d._children;
-            d.children.forEach(expand);
-            d._children = null;
-        }
-    }*/
 
     // Function to center node when clicked/dropped so node doesn't get lost when collapsing/moving with large amount of children.
 
@@ -243,7 +225,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
             .style("fill-opacity", 0);
 
         // phantom node to give us mouseover in a radius around it
-        nodeEnter.append("circle")
+        /*nodeEnter.append("circle")
             .attr('class', 'ghostCircle')
             .attr("r", 30)
             .attr("opacity", 0.2) // change this to zero to hide the target area
@@ -266,7 +248,7 @@ treeJSON = d3.json("test.json", function(error, treeData) {
             })
             .text(function(d) {
                 return d.name;
-            });
+            });*/
 
         // Change the circle fill depending on whether it has children and is collapsed
         node.select("circle.nodeCircle")
