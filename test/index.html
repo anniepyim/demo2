@@ -38,7 +38,7 @@ button {
 
 <script>
 
-chart("data.csv", "orange");
+chart("data.csv", "blue");
 
 var datearray = [];
 var colorrange = [];
@@ -150,12 +150,12 @@ var graph = d3.csv(csvpath, function(data) {
   svg.selectAll(".layer")
     .attr("opacity", 1)
     //control the opacity of different layers
-    /*.on("mouseover", function(d, i) {
+    .on("mouseover", function(d, i) {
       svg.selectAll(".layer").transition()
       .duration(250)
       .attr("opacity", function(d, j) {
         return j != i ? 0.6 : 1;
-    })})*/
+    })})
 
     on("mousemove", function(d, i) {
       //get mouse coordinates
