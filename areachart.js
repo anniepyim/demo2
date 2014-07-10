@@ -91,7 +91,7 @@ d3.csv("Nanog-avg.csv", function(error, data) {
 });
 
 function brushed() {
-  x.domain(brush.empty() ? x2.domain() : brush.extent());
+  x.domain(brush.empty() ? x2.domain() : y2.domain());//brush.extent());
   focus.select(".area").attr("d", area);
   focus.select(".x.axis").call(xAxis);
 }
