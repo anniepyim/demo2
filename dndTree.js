@@ -196,7 +196,6 @@ treeJSON = d3.json("test.json", function(error, treeData) {
 
         // Enter any new nodes at the parent's previous position.
         var nodeEnter = node.enter().append("g")
-            //.call(dragListener)
             .attr("class", "node")
             .attr("transform", function(d) {
                 return "translate(" + source.y0 + "," + source.x0 + ")";
@@ -224,31 +223,6 @@ treeJSON = d3.json("test.json", function(error, treeData) {
             })
             .style("fill-opacity", 0);
 
-        // phantom node to give us mouseover in a radius around it
-        /*nodeEnter.append("circle")
-            .attr('class', 'ghostCircle')
-            .attr("r", 30)
-            .attr("opacity", 0.2) // change this to zero to hide the target area
-        .style("fill", "red")
-            .attr('pointer-events', 'mouseover')
-            .on("mouseover", function(node) {
-                overCircle(node);
-            })
-            .on("mouseout", function(node) {
-                outCircle(node);
-            });
-
-        // Update the text to reflect whether node has children or not.
-        node.select('text')
-            .attr("x", function(d) {
-                return d.children || d._children ? -10 : 10;
-            })
-            .attr("text-anchor", function(d) {
-                return d.children || d._children ? "end" : "start";
-            })
-            .text(function(d) {
-                return d.name;
-            });*/
 
         // Change the circle fill depending on whether it has children and is collapsed
         node.select("circle.nodeCircle")
@@ -327,6 +301,10 @@ treeJSON = d3.json("test.json", function(error, treeData) {
             d.x0 = d.x;
             d.y0 = d.y;
         });
+        
+        if (d._children){
+            nameOutput(d);
+        }
     }
 
     // Append a group which holds all nodes and which the zoom Listener can act upon.
