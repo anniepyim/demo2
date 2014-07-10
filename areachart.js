@@ -101,7 +101,7 @@ d3.csv("Nanog-avg.csv", function(error, data) {
       .attr("height", height2 + 7);
       
       
-  svg.selectAll(".area")
+  svg.selectAll("g")
     .attr("opacity", 1)
     .on("mousemove", function(d, i) {
       mousex = d3.mouse(this);
