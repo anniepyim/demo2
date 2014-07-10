@@ -38,7 +38,7 @@ button {
 
 <script>
 
-chart("data.csv", "blue");
+chart("data.csv", "orange");
 
 var datearray = [];
 var colorrange = [];
@@ -162,7 +162,7 @@ var graph = d3.csv(csvpath, function(data) {
       mousex = d3.mouse(this);
       mousex = mousex[0];
       //get value according to date
-      /*var invertedx = x.invert(mousex);
+      var invertedx = x.invert(mousex);
       invertedx = invertedx.getMonth() + invertedx.getDate();
       var selected = (d.values);
       for (var k = 0; k < selected.length; k++) {
@@ -171,7 +171,7 @@ var graph = d3.csv(csvpath, function(data) {
       }
 
       mousedate = datearray.indexOf(invertedx);
-      pro = d.values[mousedate].value;*/
+      pro = d.values[mousedate].value;
 
       d3.select(this)
       .classed("hover", true)
