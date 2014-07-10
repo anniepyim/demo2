@@ -146,7 +146,7 @@ var graph = d3.csv(csvpath, function(data) {
       .attr("class", "y axis")
       .call(yAxis.orient("left"));
 
-  svg.selectAll(".layer")
+  /*svg.selectAll(".layer")
     .attr("opacity", 1)
     .on("mouseover", function(d, i) {
       svg.selectAll(".layer").transition()
@@ -184,7 +184,7 @@ var graph = d3.csv(csvpath, function(data) {
       d3.select(this)
       .classed("hover", false)
       .attr("stroke-width", "0px"), tooltip.html( "<p>" + d.key + "<br>" + pro + "</p>" ).style("visibility", "hidden");
-  })
+  })*/
     
   var vertical = d3.select(".chart")
         .append("div")
