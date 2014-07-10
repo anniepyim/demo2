@@ -220,12 +220,12 @@ treeJSON = d3.json("test.json", function(error, treeData) {
             })
             .on('click', click);
 
-        /*nodeEnter.append("circle")
+        nodeEnter.append("circle")
             .attr('class', 'nodeCircle')
             .attr("r", 0)
             .style("fill", function(d) {
                 return d._children ? "red" : "blue";
-            });*/
+            });
 
         nodeEnter.append("text")
             .attr("x", function(d) {
