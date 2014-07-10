@@ -146,6 +146,7 @@ var graph = d3.csv(csvpath, function(data) {
       .attr("class", "y axis")
       .call(yAxis.orient("left"));
 
+//The tooltip starts here
   svg.selectAll(".layer")
     .attr("opacity", 1)
     .on("mouseover", function(d, i) {
@@ -185,6 +186,8 @@ var graph = d3.csv(csvpath, function(data) {
       .classed("hover", false)
       .attr("stroke-width", "0px"), tooltip.html( "<p>" + d.key + "<br>" + pro + "</p>" ).style("visibility", "hidden");
   })
+
+//the tooltip ends here
     
   var vertical = d3.select(".chart")
         .append("div")
@@ -198,7 +201,7 @@ var graph = d3.csv(csvpath, function(data) {
         .style("left", "0px")
         .style("background", "#fff");
 
-  /*d3.select(".chart")
+  d3.select(".chart")
       .on("mousemove", function(){  
          mousex = d3.mouse(this);
          mousex = mousex[0] + 5;
@@ -206,7 +209,7 @@ var graph = d3.csv(csvpath, function(data) {
       .on("mouseover", function(){  
          mousex = d3.mouse(this);
          mousex = mousex[0] + 5;
-         vertical.style("left", mousex + "px")});*/
+         vertical.style("left", mousex + "px")});
 });
 }
 </script>
