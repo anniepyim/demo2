@@ -37,14 +37,14 @@ var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom);
     
-/*var tooltip = d3.select("body")
+var tooltip = d3.select("body")
     .append("div")
     .attr("class", "remove")
     .style("position", "absolute")
     .style("z-index", "20")
     .style("visibility", "hidden")
     .style("top", "30px")
-    .style("left", "55px");*/
+    .style("left", "55px");
 
 svg.append("defs").append("clipPath")
     .attr("id", "clip")
@@ -100,22 +100,6 @@ d3.csv("Nanog-avg.csv", function(error, data) {
       .attr("y", -6)
       .attr("height", height2 + 7);
       
-   d3.select(this)
-      .classed("hover", true)
-      .attr("stroke", #B30000)
-      .attr("stroke-width", "0.5px"), 
-      tooltip.html("hi").style("visibility", "visible");
-      
-    })
-    .on("mouseout", function(d, i) {
-     svg.selectAll(".area")
-      .transition()
-      .duration(250)
-      .attr("opacity", "1");
-      d3.select(this)
-      .classed("hover", false)
-      .attr("stroke-width", "0px"), tooltip.html( "hi" ).style("visibility", "hidden");
-  })
 });
 
 function brushed() {
