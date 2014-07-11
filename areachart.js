@@ -78,6 +78,7 @@ d3.csv("Nanog-avg.csv", function(error, data) {
         mousex = d3.mouse(this);
         mousex = mousex[0];
       var invertedx = Math.round(x.invert(mousex));
+      var index = d.Location.indexOf(invertedx);
       //var selected = (d.values);
       /*for (var k = 0; k < selected.length; k++) {
         locationarray[k] = selected[k].Location;
@@ -90,7 +91,7 @@ d3.csv("Nanog-avg.csv", function(error, data) {
       //.classed("hover", true)
       //.attr("stroke", strokecolor)
       //.attr("stroke-width", "0.5px"), 
-      tooltip.html(d[0].Location).style("visibility", "visible");
+      tooltip.html(index).style("visibility", "visible");
       
       
       /*.on("mouseover", function(d) {      
