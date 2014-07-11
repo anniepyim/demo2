@@ -79,8 +79,8 @@ d3.csv("Nanog-avg.csv", function(error, data) {
       .on("mousemove", function(d, i) {
         mousex = d3.mouse(this);
         mousex = mousex[0];
-      /*var invertedx = x.invert(mousex);
-      invertedx = invertedx.getMonth() + invertedx.getDate();
+      var invertedx = x.invert(mousex);
+      /*invertedx = invertedx.getMonth() + invertedx.getDate();
       var selected = (d.values);
       for (var k = 0; k < selected.length; k++) {
         datearray[k] = selected[k].date
@@ -94,7 +94,7 @@ d3.csv("Nanog-avg.csv", function(error, data) {
       //.classed("hover", true)
       //.attr("stroke", strokecolor)
       //.attr("stroke-width", "0.5px"), 
-      tooltip.html( mousex).style("visibility", "visible");
+      tooltip.html(invertedx).style("visibility", "visible");
       
     })
 
