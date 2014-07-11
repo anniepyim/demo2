@@ -63,7 +63,7 @@ d3.csv("data2.csv", function(error, data) {
       .data(pie(data))
     .enter().append("g")
       .attr("class", "arc")
-      .on("click", function(d){
+      .on("mouseover", function(d){
           alert('Hey! I said not to try clicking this link!'+d.data.age); 
       });
 
