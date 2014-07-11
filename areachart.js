@@ -37,7 +37,7 @@ var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom);
     
-var tooltip = d3.select("body")
+var tooltip = d3.select("#areachart-container")
     .append("div")
     .attr("class", "remove")
     .style("position", "absolute")
