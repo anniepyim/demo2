@@ -77,8 +77,8 @@ d3.csv("Nanog-avg.csv", function(error, data) {
       .on("mousemove", function(d) {
         mousex = d3.mouse(this);
         mousex = mousex[0];
-      var invertedx = x.invert(mousex);
-      //var selected = (d.values);
+      var invertedx = Math.round(x.invert(mousex));
+      invertedx = (Math.round(invertedx/25))*25 + 1;
       for (var k = 0; k < d.length; k++) {
         locationarray[k] = d[k].Location;
       }
@@ -90,17 +90,10 @@ d3.csv("Nanog-avg.csv", function(error, data) {
       //.classed("hover", true)
       //.attr("stroke", strokecolor)
       //.attr("stroke-width", "0.5px"), 
-      tooltip.html(locationarray.indexOf("122650501")).style("visibility", "visible");
+      tooltip.html(invertedx).style("visibility", "visible");
       
       
-      /*.on("mouseover", function(d) {      
-            div.transition()        
-                .duration(200)      
-                .style("opacity", .9);      
-            div .html(formatTime(d.date) + "<br/>"  + d.close)  
-                .style("left", (d3.event.pageX) + "px")     
-                .style("top", (d3.event.pageY - 28) + "px");    
-            })  */
+
       
       
     })
