@@ -60,6 +60,7 @@ var context = svg.append("g")
     .attr("class", "context")
     .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
     
+var locationarray = [];
 
 
 d3.csv("Nanog-avg.csv", function(error, data) {
@@ -77,21 +78,19 @@ d3.csv("Nanog-avg.csv", function(error, data) {
         mousex = d3.mouse(this);
         mousex = mousex[0];
       var invertedx = Matho.round(x.invert(mousex));
-      /*invertedx = invertedx.getMonth() + invertedx.getDate();
       var selected = (d.values);
       for (var k = 0; k < selected.length; k++) {
-        datearray[k] = selected[k].date
-        datearray[k] = datearray[k].getMonth() + datearray[k].getDate();
+        locationarray[k] = selected[k].Location
       }
 
-      mousedate = datearray.indexOf(invertedx);
-      pro = d.values[mousedate].value;*/
+      mouselocation = locationarray.indexOf(invertedx);
+      pro = d.values[mouselocation].present;
 
       //d3.select(this)
       //.classed("hover", true)
       //.attr("stroke", strokecolor)
       //.attr("stroke-width", "0.5px"), 
-      tooltip.html(invertedx).style("visibility", "visible");
+      tooltip.html(pro).style("visibility", "visible");
       
     })
 
