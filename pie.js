@@ -1,22 +1,3 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<style>
-
-body {
-  font: 10px sans-serif;
-}
-
-.arc path {
-  stroke: #fff;
-}
-
-
-</style>
-<body>
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script>
-
 var width = $(document).width()*0.9,
     height = $(document).height()*0.9,
     radius = Math.min(width, height) / 2;
@@ -32,7 +13,7 @@ var pie = d3.layout.pie()
     .sort(null)
     .value(function(d) { return d.count; });
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#piechart-container").append("svg")
     .attr("width", width)
     .attr("height", height)
   .append("g")
@@ -74,5 +55,3 @@ d3.csv("celltypecount.csv", function(error, data) {
       .text(function(d) { return d.data.cell; });
 
 });
-
-</script>
