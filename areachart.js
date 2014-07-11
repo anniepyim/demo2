@@ -83,14 +83,14 @@ d3.csv("Nanog-avg.csv", function(error, data) {
         locationarray[k] = d[k].Location;
       }
 
-      mouselocation = locationarray.indexOf(String.valueOf(invertedx));
+      mouselocation = locationarray.indexOf(invertedx.toString());
       //pro = d.values[mouselocation].present;
 
       //d3.select(this)
       //.classed("hover", true)
       //.attr("stroke", strokecolor)
       //.attr("stroke-width", "0.5px"), 
-      tooltip.html(invertedx.toString()).style("visibility", "visible");
+      tooltip.html(mouselocation).style("visibility", "visible");
       
       
 
