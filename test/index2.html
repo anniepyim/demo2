@@ -62,16 +62,15 @@ d3.csv("data2.csv", function(error, data) {
   var g = svg.selectAll(".arc")
       .data(pie(data))
     .enter().append("g")
-      .attr("class", "arc");
+      .attr("class", "arc")
+      .on("mouseover", function(d){
+          div.html("hihi") ; 
+            });
 
   g.append("path")
       .attr("d", arc)
       .style("fill", function(d) { return color(d.data.age); });
-      /*.on("mouseover", function(d){
-          div .html("hihi")  
-                .style("left", (d3.event.pageX) + "px")     
-                .style("top", (d3.event.pageY - 28) + "px");    
-            });*/
+      
 
   g.append("text")
       .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
