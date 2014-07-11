@@ -1,5 +1,5 @@
-var viewerWidth = $(document).width()*0.5;
-var viewerHeight = $(document).height()*0.5;
+var viewerWidth = $(document).width()*0.9;
+var viewerHeight = $(document).height()*0.9;
 
 var margin = {top: 10, right: 10, bottom: 100, left: 40},
     margin2 = {top: viewerHeight-70, right: 10, bottom: 20, left: 40},
@@ -78,20 +78,19 @@ d3.csv("Nanog-avg.csv", function(error, data) {
         mousex = d3.mouse(this);
         mousex = mousex[0];
       var invertedx = Math.round(x.invert(mousex));
-      var index = d.Location.indexOf(invertedx);
       //var selected = (d.values);
-      /*for (var k = 0; k < selected.length; k++) {
-        locationarray[k] = selected[k].Location;
+      for (var k = 0; k < selected.length; k++) {
+        locationarray[k] = d[k].Location;
       }
 
       mouselocation = locationarray.indexOf(invertedx);
-      pro = d.values[mouselocation].present;*/
+      //pro = d.values[mouselocation].present;
 
       //d3.select(this)
       //.classed("hover", true)
       //.attr("stroke", strokecolor)
       //.attr("stroke-width", "0.5px"), 
-      tooltip.html(index).style("visibility", "visible");
+      tooltip.html(mouselocation).style("visibility", "visible");
       
       
       /*.on("mouseover", function(d) {      
