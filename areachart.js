@@ -1,5 +1,5 @@
-var viewerWidth = $(document).width()*0.9;
-var viewerHeight = $(document).height()*0.9;
+var viewerWidth = $(document).width()*0.5;
+var viewerHeight = $(document).height()*0.5;
 
 var margin = {top: 10, right: 10, bottom: 100, left: 40},
     margin2 = {top: viewerHeight-70, right: 10, bottom: 20, left: 40},
@@ -79,7 +79,7 @@ d3.csv("Nanog-avg.csv", function(error, data) {
         mousex = mousex[0];
       var invertedx = Math.round(x.invert(mousex));
       //var selected = (d.values);
-      for (var k = 0; k < selected.length; k++) {
+      for (var k = 0; k < d.length; k++) {
         locationarray[k] = d[k].Location;
       }
 
