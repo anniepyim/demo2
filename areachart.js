@@ -1,5 +1,5 @@
 var viewerWidth = $(document).width()*0.5;
-var viewerHeight = $(document).height()*0.5;
+var viewerHeight = $(document).height()*0.6;
 
 var margin = {top: 10, right: 10, bottom: 100, left: 40},
     margin2 = {top: viewerHeight-70, right: 10, bottom: 20, left: 40},
