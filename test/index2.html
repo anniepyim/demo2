@@ -49,9 +49,9 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-/*var div = d3.select("body").append("div")   
+var div = d3.select("body").append("div")   
     .attr("class", "tooltip")               
-    .style("opacity", 0);*/
+    .style("opacity", 0);
 
 d3.csv("data2.csv", function(error, data) {
 
