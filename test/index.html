@@ -161,8 +161,8 @@ var graph = d3.csv(csvpath, function(data) {
       mousex = d3.mouse(this);
       mousex = mousex[0];
       var invertedx = x.invert(mousex);
-      //invertedx = invertedx.getMonth() + invertedx.getDate();
-      /*var selected = (d.values);
+      invertedx = invertedx.getMonth() + invertedx.getDate();
+      var selected = (d.values);
       for (var k = 0; k < selected.length; k++) {
         datearray[k] = selected[k].date
         datearray[k] = datearray[k].getMonth() + datearray[k].getDate();
@@ -175,7 +175,7 @@ var graph = d3.csv(csvpath, function(data) {
       .classed("hover", true)
       .attr("stroke", strokecolor)
       .attr("stroke-width", "0.5px"), 
-      tooltip.html(invertedx).style("visibility", "visible");
+      tooltip.html(pro).style("visibility", "visible");
       
     })
     /*.on("mouseout", function(d, i) {
