@@ -1,5 +1,5 @@
-var viewerWidth = $(document).width()*0.5;
-var viewerHeight = $(document).height()*0.6;
+var viewerWidth = $(document).width()*0.9;
+var viewerHeight = $(document).height()*0.9;
 
 var margin = {top: 10, right: 10, bottom: 100, left: 40},
     margin2 = {top: viewerHeight-70, right: 10, bottom: 20, left: 40},
@@ -45,9 +45,6 @@ var tooltip = d3.select("body")
     .style("visibility", "hidden")
     .style("top", "30px")
     .style("left", "55px");
-/*var div = d3.select("body").append("div")   
-    .attr("class", "tooltip")               
-    .style("opacity", 0);*/
 
 svg.append("defs").append("clipPath")
     .attr("id", "clip")
@@ -79,7 +76,7 @@ d3.csv("Nanog-avg.csv", function(error, data) {
       .on("mousemove", function(d, i) {
         mousex = d3.mouse(this);
         mousex = mousex[0];
-      var invertedx = x.invert(mousex);
+      var invertedx = Matho.round(x.invert(mousex));
       /*invertedx = invertedx.getMonth() + invertedx.getDate();
       var selected = (d.values);
       for (var k = 0; k < selected.length; k++) {
