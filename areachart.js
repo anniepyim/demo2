@@ -90,7 +90,7 @@ d3.csv("Nanog-avg.csv", function(error, data) {
       //.classed("hover", true)
       //.attr("stroke", strokecolor)
       //.attr("stroke-width", "0.5px"), 
-      tooltip.html(mouselocation).style("visibility", "visible");
+      tooltip.html(d[mouselocation].present).style("visibility", "visible");
       
       
 
