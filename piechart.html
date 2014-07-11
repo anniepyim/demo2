@@ -71,7 +71,7 @@ d3.csv("data2.csv", function(error, data) {
           })
       })
       .on("mouseout", function(d, i) {
-        svg.selectAll(".layer")
+        svg.selectAll(".arc")
            .transition()
            .duration(250)
            .attr("opacity", "1");
