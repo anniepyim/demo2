@@ -33,11 +33,11 @@ var area2 = d3.svg.area()
     .y0(height2)
     .y1(function(d) { return y2(d.value); });
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#areachart-container").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom);
     
-var tooltip = d3.select("body")
+var tooltip = d3.select("#areachart-container")
     .append("div")
     .attr("class", "remove")
     .style("position", "absolute")
@@ -121,7 +121,7 @@ d3.csv("Nanog-avg.csv", function(error, data) {
       .attr("height", height2 + 7);
       
       
-  var vertical = d3.select("body")
+  var vertical = d3.select("#areachart-container")
         .append("div")
         .attr("class", "remove")
         .style("position", "absolute")
@@ -134,7 +134,7 @@ d3.csv("Nanog-avg.csv", function(error, data) {
         .style("background", "#fff");
   
   //creating the white line
-  d3.select("body")
+  d3.select("#areachart-container")
       .on("mousemove", function(){  
          mousex = d3.mouse(this);
          mousex = mousex[0] + 5;
