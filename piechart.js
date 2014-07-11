@@ -14,8 +14,8 @@ var pie = d3.layout.pie()
     .value(function(d) { return d.count; });
 
 var svg = d3.select("#piechart-container").append("svg")
-    .attr("width", radius*2)
-    .attr("height", radius*2)
+    .attr("width", width)
+    .attr("height", height)
   .append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
