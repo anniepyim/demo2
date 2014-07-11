@@ -175,7 +175,7 @@ var graph = d3.csv(csvpath, function(data) {
       .classed("hover", true)
       .attr("stroke", strokecolor)
       .attr("stroke-width", "0.5px"), 
-      tooltip.html(selected[0].date).style("visibility", "visible");
+      tooltip.html(selected[0]).style("visibility", "visible");
       
     })
     /*.on("mouseout", function(d, i) {
