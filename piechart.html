@@ -63,8 +63,12 @@ d3.csv("data2.csv", function(error, data) {
       .data(pie(data))
     .enter().append("g")
       .attr("class", "arc")
-      .on("mouseover", function(d){
-          alert('Hey! I said not to try clicking this link!'+d.data.age); 
+      .on("mouseover", function(d, i) {
+        svg.selectAll(".arc").transition()
+        .duration(250)
+        .attr("opacity", function(d, j) {
+          return j != i ? 0.6 : 1;
+        })
       });
 
   g.append("path")
