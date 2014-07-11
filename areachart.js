@@ -85,7 +85,9 @@ d3.csv("Nanog-avg.csv", function(error, data) {
 
         mouselocation = locationarray.indexOf(invertedx.toString());
       
-        tooltip.html(d[mouselocation].present).style("visibility", "visible");
+        tooltip.html("Present in: " + d[mouselocation].present + "% of the tracks <br>" +
+                     "Max tag: " + d[mouselocation].max)
+               .style("visibility", "visible");
       })
       
       .on("mouseout", function(d) {
