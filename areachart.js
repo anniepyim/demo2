@@ -37,14 +37,14 @@ var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom);
     
-var tooltip = d3.select("#areachart-container")
+var tooltip = d3.select("body")
     .append("div")
     .attr("class", "remove")
     .style("position", "absolute")
     .style("z-index", "20")
     .style("visibility", "hidden")
-    .style("top", margin.top)
-    .style("left", margin.left);
+    .style("top", "10px")
+    .style("left", "70px");
 
 svg.append("defs").append("clipPath")
     .attr("id", "clip")
