@@ -80,7 +80,7 @@ d3.csv("Nanog-avg.csv", function(error, data) {
       var invertedx = Matho.round(x.invert(mousex));
       var selected = (d.values);
       for (var k = 0; k < selected.length; k++) {
-        locationarray[k] = selected[k].Location
+        locationarray[k] = selected[k].Location;
       }
 
       mouselocation = locationarray.indexOf(invertedx);
