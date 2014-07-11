@@ -41,6 +41,15 @@ d3.csv("celltypecount.csv", function(error, data) {
            .transition()
            .duration(250)
            .attr("opacity", "1");
+      })
+      .on("click", function(d) {
+        var csvString = d.cell;
+        var a = document.createElement('a');
+        a.href     = 'data:attachment/csv,' + csvString;
+        a.target   ='_blank';
+        a.download = 'myFile.csv,' + encodeURIComponent(csvString); ;
+        document.body.appendChild(a);
+        a.click();
       });
 
   g.append("path")
