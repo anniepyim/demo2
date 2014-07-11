@@ -43,7 +43,7 @@ var tooltip = d3.select("body")
     .style("position", "absolute")
     .style("z-index", "20")
     .style("visibility", "hidden")
-    .style("top", "10px")
+    .style("top", "20px")
     .style("left", "70px");
 
 svg.append("defs").append("clipPath")
