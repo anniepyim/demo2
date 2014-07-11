@@ -77,7 +77,7 @@ d3.csv("Nanog-avg.csv", function(error, data) {
       .on("mousemove", function(d) {
         mousex = d3.mouse(this);
         mousex = mousex[0];
-      var invertedx = Math.round(x.invert(mousex));
+      var invertedx = x.invert(mousex);
       //var selected = (d.values);
       for (var k = 0; k < d.length; k++) {
         locationarray[k] = d[k].Location;
