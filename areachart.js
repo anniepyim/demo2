@@ -1,5 +1,6 @@
-var viewerWidth = $(document).width()*0.9;
-var viewerHeight = $(document).height()*0.9;
+$( document ).ready(function() {
+var viewerWidth = 400;//$(document).width()*0.9;
+var viewerHeight = 400;//$(document).height()*0.9;
 
 var margin = {top: 10, right: 10, bottom: 100, left: 40},
     margin2 = {top: viewerHeight-70, right: 10, bottom: 20, left: 40},
@@ -161,3 +162,5 @@ function brushend(p) {
   document.body.appendChild(a);
   a.click();
 }
+
+});
