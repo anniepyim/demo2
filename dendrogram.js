@@ -146,38 +146,23 @@ treeJSON = d3.json("testjson.json", function(error, treeData) {
     }
     
     function nameOutput(d){
-            if(d._children){
-                var childrenName = [];
-                getAllChildren(d);
-                function getAllChildren(d){
-                    for (var i = 0; i < d._children.length; i++){
-                        if (!(d._children[i].children)){
-                          childrenName.push(d._children[i].name);
-                        }else{
-                            getAllChildren(d._children[i]);   
-                        }
-                    }
-                }
-  	            var csvString = childrenName;
-            }
-            
-            
-            /*if(!d.children){
+        if(!d._children){
+            if(!d.children){
                 var csvString = d.name;
             }else{
                 var childrenName = [];
                 getAllChildren(d);
                 function getAllChildren(d){
-                    for (var i = 0; i < d._children.length; i++){
-                        if (!(d._children[i].children)){
-                          childrenName.push(d._children[i].name);
+                    for (var i = 0; i < d.children.length; i++){
+                        if (!(d.children[i].children)){
+                          childrenName.push(d.children[i].name);
                         }else{
-                            getAllChildren(d._children[i]);   
+                            getAllChildren(d.children[i]);   
                         }
                     }
                 }
   	            var csvString = childrenName;
-            }*/
+            }
         
             var a = document.createElement('a');
   	        a.href     = 'data:attachment/csv,' + csvString;
@@ -185,6 +170,7 @@ treeJSON = d3.json("testjson.json", function(error, treeData) {
   	        a.download = 'myFile.csv,' + encodeURIComponent(csvString); ;
   	        document.body.appendChild(a);
   	        a.click();
+        }
     }
 
     function update(source) {
