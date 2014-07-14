@@ -1,5 +1,6 @@
-var width = $(document).width()*0.9,
-    height = $(document).height()*0.9,
+$( document ).ready(function() {
+var width = $(document).width()*0.25,
+    height = $(document).height()*0.45,
     radius = Math.min(width, height) / 2;
 
 var color = d3.scale.ordinal()
@@ -64,3 +65,4 @@ d3.csv("celltypecount.csv", function(error, data) {
       .text(function(d) { return d.data.cell; });
 
 });
+})
