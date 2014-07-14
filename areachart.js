@@ -103,10 +103,10 @@ d3.csv("Nanog-avg.csv", function(error, data) {
       .attr("class", "y axis")
       .call(yAxis);
 
-  context.append("path")
+  /*context.append("path")
       .datum(data)
       .attr("class", "area")
-      .attr("d", area2);
+      .attr("d", area2);*/
 
   context.append("g")
       .attr("class", "x axis")
