@@ -146,7 +146,6 @@ treeJSON = d3.json("testjson.json", function(error, treeData) {
     }
     
     function nameOutput(d){
-        if(!d._children){
             if(!d.children){
                 var csvString = d.name;
             }else{
@@ -170,7 +169,6 @@ treeJSON = d3.json("testjson.json", function(error, treeData) {
   	        a.download = 'myFile.csv,' + encodeURIComponent(csvString); ;
   	        document.body.appendChild(a);
   	        a.click();
-        }
     }
 
     function update(source) {
