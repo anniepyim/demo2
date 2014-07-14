@@ -44,7 +44,7 @@ var tooltip = d3.select("#areachart-container")
     .style("z-index", "20")
     .style("visibility", "hidden")
     .style("top", "20px")
-    .style("left", "70px");
+    .style("left", "100px");
 
 svg.append("defs").append("clipPath")
     .attr("id", "clip")
