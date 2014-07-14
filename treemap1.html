@@ -63,7 +63,7 @@ d3.json("testwithname.json", function(data) {
     .enter().append("svg:g")
       .attr("class", "cell")
       .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
-      .on("click", alert("hihi")/*function(d) { return zoom(node == d.parent ? root : d.parent); }*/);
+      .on("click", function(d) { return zoom(node == d.parent ? root : d.parent); });
 
   cell.append("svg:rect")
       .attr("width", function(d) { return d.dx - 1; })
