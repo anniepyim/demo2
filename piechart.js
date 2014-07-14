@@ -43,6 +43,7 @@ d3.csv("celltypecount.csv", function(error, data) {
            .attr("opacity", "1");
       })
       .on("click", function(d) {
+        alert(d.data.cell);
         var csvString = d.data.cell;
         var a = document.createElement('a');
         a.href     = 'data:attachment/csv,' + csvString;
