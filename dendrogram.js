@@ -152,11 +152,11 @@ treeJSON = d3.json("testjson.json", function(error, treeData) {
                 var childrenName = [];
                 getAllChildren(d);
                 function getAllChildren(d){
-                    for (var i = 0; i < d.children.length; i++){
-                        if (!(d.children[i].children)){
-                          childrenName.push(d.children[i].name);
+                    for (var i = 0; i < d._children.length; i++){
+                        if (!(d._children[i].children)){
+                          childrenName.push(d._children[i].name);
                         }else{
-                            getAllChildren(d.children[i]);   
+                            getAllChildren(d._children[i]);   
                         }
                     }
                 }
