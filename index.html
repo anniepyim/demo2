@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style type="text/css">
+  
+  	body {
+  	font: 12px sans-serif;
+  	}
+  	
+  	#areachart-container{
+  	 display: inline;
+  	}
+  	
+  	#piechart-container{
+  	 display: inline;
+  	}
+  	
+
+	svg {
+  	font: 10px sans-serif;
+	}
+
+	.area {
+  	fill: steelblue;
+  	clip-path: url(#clip);
+	}
+
+	.axis path,
+	.axis line {
+  	fill: none;
+  	stroke: #000;
+  	shape-rendering: crispEdges;
+	}
+
+	.brush .extent {
+  	stroke: #fff;
+  	fill-opacity: .125;
+  	shape-rendering: crispEdges;
+  
+  	}
+  
+	.node {
+    cursor: pointer;
+  	}
+
+  	.overlay{
+    background-color:#EEE;
+  	}
+   
+  	.node circle {
+    fill: #fff;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+  	}
+   
+  	.node text {
+    font-size:10px; 
+    font-family:sans-serif;
+  	}
+   
+  	.link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 1.5px;
+  	}
+  
+  	.arc path {
+  	stroke: #fff;
+	}
+</style>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="dendrogram.js"></script>
+<script src="areachart.js"></script>
+<script src="piechart.js"></script>
+
+</head>
+<body>
+    <div id="tree-container" align="center"> </div>
+    <div id="areachart-container" align="center"> </div>
+    <div id="piechart-container" align="center"> </div>
+    
+</body>
+</html>
