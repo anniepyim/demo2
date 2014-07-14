@@ -44,11 +44,10 @@ d3.csv("celltypecount.csv", function(error, data) {
       })
       .on("click", function(d) {
         var csvString = d.data.cell;
-        alert(csvString+"hihi");
         var a = document.createElement('a');
         a.href     = 'data:attachment/csv,' + csvString;
         a.target   ='_blank';
-        a.download = 'myFile.csv,' + encodeURIComponent(csvString); ;
+        a.download = 'myFile.csv';
         document.body.appendChild(a);
         a.click();
       });
