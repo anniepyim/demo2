@@ -44,8 +44,8 @@ var tooltip = d3.select("#areachart-container")
     .style("position", "absolute")
     .style("z-index", "20")
     .style("visibility", "hidden")
-    .style("top", "20px")
-    .style("left", "100px");
+    .style("top", viewerHeight*1.1+"px")
+    .style("left", "70px");
 
 svg.append("defs").append("clipPath")
     .attr("id", "clip")
@@ -129,7 +129,7 @@ d3.csv("Nanog-avg.csv", function(error, data) {
         .style("z-index", "19")
         .style("width", "1px")
         .style("height", height)
-        .style("top", "10px")
+        .style("top", viewerHeight*1.1+"px")
         .style("bottom", "30px")
         .style("left", "0px")
         .style("background", "#fff");
