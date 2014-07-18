@@ -6,26 +6,32 @@
   
   	body {
   	font: 12px sans-serif;
+  	
   	}
   	
   	#areachart-container{
   	 display: inline;
+  	 
   	}
   	
   	#piechart-container{
   	 display: inline;
+  	 
   	}
   	
 
 	svg {
   	font: 10px sans-serif;
+  	  	
 	}
 
 	.area {
   	fill: steelblue;
   	clip-path: url(#clip);
+  	
 	}
-
+	
+	
 	.axis path,
 	.axis line {
   	fill: none;
@@ -37,18 +43,27 @@
 	fill: rgba(0,0,0,.1);
 	}
 	
+	g.context rect.background{
+	fill: rgba(200,200,255,0.4);
+	visibility: visible !important;
+	}
+	
 	.brush .extent {
   	stroke: #000;
   	fill-opacity: .125;
   	shape-rendering: crispEdges;
-  
   	}
+  
   
 	.node {
     cursor: pointer;
   	}
 
   	.overlay{
+    background-color:#EEE;
+  	}
+  	
+  	.context{
     background-color:#EEE;
   	}
    
@@ -72,6 +87,7 @@
   	.arc path {
   	stroke: #fff;
 	}
+	
 </style>
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="http://d3js.org/d3.v3.min.js"></script>
@@ -81,9 +97,17 @@
 
 </head>
 <body>
+	
     <div id="tree-container" align="center"> </div>
     <div id="areachart-container" align="center"> </div>
     <div id="piechart-container" align="center"> </div>
+    <svg id="mySvg" width="80" height="80">
+      <defs id="mdef">
+        <pattern id="image" x="0" y="0" height="100" width="100">
+          <image x="0" y="0" width="100" height="100" xlink:href="hello.jpg"></image>
+        </pattern>
+  </defs>
+  </svg>
     
 </body>
 </html>

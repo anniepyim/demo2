@@ -45,13 +45,13 @@ var tooltip = d3.select("#areachart-container")
     .style("z-index", "20")
     .style("visibility", "hidden")
     .style("top", viewerHeight*1.1+"px")
-    .style("left", "70px");
+    .style("left", "50px");
 
 svg.append("defs").append("clipPath")
-    .attr("id", "clip")
-  .append("rect")
-    .attr("width", width)
-    .attr("height", height);
+     .attr("id", "clip")
+    .append("rect")
+     .attr("width", width)
+     .attr("height", height);
 
 var focus = svg.append("g")
     .attr("class", "focus")
@@ -59,7 +59,8 @@ var focus = svg.append("g")
 
 var context = svg.append("g")
     .attr("class", "context")
-    .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
+    .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")")
+    //.style("fill", "url(#image)");
     
 var locationarray = [];
 
@@ -106,9 +107,11 @@ d3.csv("Nanog-avg.csv", function(error, data) {
 
   /*context.append("path")
       .datum(data)
-      .attr("class", "area")
+      .attr("class", "area");
       .attr("d", area2);*/
+    
 
+  
   context.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height2 + ")")
