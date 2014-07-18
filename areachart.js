@@ -160,7 +160,7 @@ function brushend(p) {
   var a = document.createElement('a');
   a.href     = 'data:attachment/csv,' + csvString;
   a.target   ='_blank';
-  a.download = 'myFile.csv,' + encodeURIComponent(csvString); ;
+  a.download = 'myFile.csv';
   //a.innerHTML = "Click me to download the file.";
   document.body.appendChild(a);
   a.click();

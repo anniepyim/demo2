@@ -167,7 +167,7 @@ treeJSON = d3.json("testjson.json", function(error, treeData) {
             var a = document.createElement('a');
   	        a.href     = 'data:attachment/csv,' + csvString;
   	        a.target   ='_blank';
-  	        a.download = 'myFile.csv,' + encodeURIComponent(csvString); ;
+  	        a.download = 'myFile.csv' ;
   	        document.body.appendChild(a);
   	        a.click();
         }
