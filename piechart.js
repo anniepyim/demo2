@@ -20,7 +20,7 @@ var svg = d3.select("#piechart-container").append("svg")
   .append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-d3.csv("celltypecount.csv", function(error, data) {
+d3.csv("testcell.csv", function(error, data) {
 
   data.forEach(function(d) {
     d.count = +d.count;

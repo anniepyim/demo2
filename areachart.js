@@ -65,7 +65,7 @@ var context = svg.append("g")
 var locationarray = [];
 
 
-d3.csv("Nanog-avg.csv", function(error, data) {
+d3.csv("testavg.csv", function(error, data) {
 
   x.domain(d3.extent(data.map(function(d) { return d.Location; })));
   y.domain([0, d3.max(data,(function(d) { return +d.value;}))]);
@@ -88,7 +88,8 @@ d3.csv("Nanog-avg.csv", function(error, data) {
         mouselocation = locationarray.indexOf(invertedx.toString());
       
         tooltip.html("Present in: " + d[mouselocation].present + "% of the tracks <br>" +
-                     "Max tag: " + d[mouselocation].max)
+                     "Max RPM (factor): " + d[mouselocation].max + "<br>"+
+                     "Standard deviation: " + d[mouselocation].SD)
                .style("visibility", "visible");
       })
       
