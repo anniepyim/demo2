@@ -12,7 +12,7 @@ var arc = d3.svg.arc()
 
 var pie = d3.layout.pie()
     .sort(null)
-    .value(function(d) { return d.count; });
+    .value(function(d) { return d.value; });
 
 var svg = d3.select("#piechart-container").append("svg")
     .attr("width", width)
@@ -55,14 +55,14 @@ d3.csv("testcell.csv", function(error, data) {
 
   g.append("path")
       .attr("d", arc)
-      .style("fill", function(d) { return color(d.data.cell); });
+      .style("fill", function(d) { return color(d.data.label); });
       
 
   g.append("text")
       .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
       .attr("dy", ".35em")
       .style("text-anchor", "middle")
-      .text(function(d) { return d.data.cell; });
+      .text(function(d) { return d.data.label; });
 
 });
 })

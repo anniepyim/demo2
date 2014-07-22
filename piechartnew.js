@@ -1,48 +1,6 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-	<title>d3pie examples</title>
-</head>
-<body>
-<h1>
-	<a href="../../#examples">Standalone Examples</a> &raquo; Small Segment grouping
-</h1>
-
-<p>
-	Depending on your data set, you may find you have a lot of very small values, all getting scrunched up
-	at the end of your pie chart. To get around that you can use the "small segment grouping" option which lets
-	you group small values into a single segment with a custom label.
-</p>
-
-<p>
-	In the example below, any birds with
-</p>
-
-<hr size="1" />
-
-<div id="pie"></div>
-
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="d3pie.js"></script>
-
-<script>
-	var pie = new d3pie("pie", {
-		//size: {
-		//	pieOuterRadius: "100%",
-		//	canvasHeight: 500
-		//},
-		data: {
-			sortOrder: "value-asc",
-			smallSegmentGrouping: {
-				enabled: true,
-				value: 1,
-				valueType: "percentage",
-				label: "Others",
-				color: "#999999"
-			},
-			content: [
-								{label: "Hepatocyte",value: 10},
+$( document ).ready(function() {
+var datacontent = 
+[{label: "Hepatocyte",value: 10},
 {label: "Bone marrow cell",value: 2},
 {label: "Extraembryonic endoderm stem cell",value: 1},
 {label: "Cerebellum cell",value: 4},
@@ -80,10 +38,31 @@
 {label: "Dermal fibroblast",value: 2},
 {label: "Neural stem cell",value: 4},
 {label: "Liver cell",value: 3},
-{label: "Embryonic liver cell",value: 1},
-			]
+{label: "Embryonic liver cell",value: 1}];
+
+d3.csv("testcell.csv", function(error, data) {
+
+  data.forEach(function(d) {
+    d.count = +d.count;
+  });
+
+var pie = new d3pie("piechart-container", {
+		size: {
+			pieOuterRadius: "80%",
+			canvasHeight: $(document).height()*0.45,
+			canvasWidth: $(document).width()*0.37,
+		},
+		data: {
+			sortOrder: "value-asc",
+			smallSegmentGrouping: {
+				enabled: true,
+				value: 1,
+				valueType: "percentage",
+				label: "Others",
+				color: "#999999"
+			},
+			content: datacontent
 		}
 	});
-</script>
-</body>
-</html>
+	});
+})

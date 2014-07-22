@@ -163,13 +163,14 @@ treeJSON = d3.json("testtestjson.json", function(error, treeData) {
                 }
   	            var csvString = childrenName;
             }
-        
-            var a = document.createElement('a');
+        	
+        	alert(csvString);
+            /*var a = document.createElement('a');
   	        a.href     = 'data:attachment/csv,' + csvString;
   	        a.target   ='_blank';
   	        a.download = 'myFile.csv' ;
   	        document.body.appendChild(a);
-  	        a.click();
+  	        a.click();*/
         }
     }
 

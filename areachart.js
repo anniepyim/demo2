@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-var viewerWidth = $(document).width()*0.7;
+var viewerWidth = $(document).width()*0.6;
 var viewerHeight = $(document).height()*0.45;
 
 var margin = {top: 10, right: 10, bottom: 100, left: 40},
@@ -24,13 +24,13 @@ var brush = d3.svg.brush()
 
 var area = d3.svg.area()
     .interpolate("monotone")
-    .x(function(d) { return x(d.Location); })
+    .x(function(d) { return x(d.loc); })
     .y0(height)
     .y1(function(d) { return y(d.value); });
 
 var area2 = d3.svg.area()
     .interpolate("monotone")
-    .x(function(d) { return x2(d.Location); })
+    .x(function(d) { return x2(d.loc); })
     .y0(height2)
     .y1(function(d) { return y2(d.value); });
 
@@ -62,12 +62,11 @@ var context = svg.append("g")
     .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")")
     //.style("fill", "url(#image)");
     
-var locationarray = [];
+var locarray = [];
 
 
 d3.csv("testavg.csv", function(error, data) {
-
-  x.domain(d3.extent(data.map(function(d) { return d.Location; })));
+  x.domain(d3.extent(data.map(function(d) { return d.loc; })));
   y.domain([0, d3.max(data,(function(d) { return +d.value;}))]);
   x2.domain(x.domain());
   y2.domain(y.domain());
@@ -82,14 +81,14 @@ d3.csv("testavg.csv", function(error, data) {
         var invertedx = Math.round(x.invert(mousex));
         invertedx = (Math.round(invertedx/25))*25 + 1;
         for (var k = 0; k < d.length; k++) {
-            locationarray[k] = d[k].Location;
+            locarray[k] = d[k].loc;
         }
 
-        mouselocation = locationarray.indexOf(invertedx.toString());
+        mouseloc = locarray.indexOf(invertedx.toString());
       
-        tooltip.html("Present in: " + d[mouselocation].present + "% of the tracks <br>" +
-                     "Max RPM (factor): " + d[mouselocation].max + "<br>"+
-                     "Standard deviation: " + d[mouselocation].SD)
+        tooltip.html("Present in: " + d[mouseloc].present + "% of the tracks <br>" +
+                     "Max RPM (factor): " + d[mouseloc].max + "<br>"+
+                     "Standard deviation: " + d[mouseloc].SD)
                .style("visibility", "visible");
       })
       
@@ -157,14 +156,16 @@ function brushed() {
 }
 
 function brushend(p) {
-  var csvString = brush.extent();
+  alert(brush.extent());
+  
+  /*var csvString = brush.extent();
   var a = document.createElement('a');
   a.href     = 'data:attachment/csv,' + csvString;
   a.target   ='_blank';
   a.download = 'myFile.csv';
   //a.innerHTML = "Click me to download the file.";
   document.body.appendChild(a);
-  a.click();
+  a.click();*/
 }
 
 });
