@@ -2,7 +2,7 @@ $( document ).ready(function() {
 // Get JSON data
 treeJSON = d3.json("testtestjson.json", function(error, treeData) {
 	
-	var treeData = {"name":"parent","children":[{"name":"Pou5f1","value":1}]};
+	//var treeData = {"name":"parent","children":[{"name":"Pou5f1","value":1}]};
     // Calculate total nodes, max label length
     var totalNodes = 0;
     var maxLabelLength = 0;
