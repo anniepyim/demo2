@@ -14,6 +14,7 @@ treeJSON = d3.json("testtestjson.json", function(error, treeData) {
     var i = 0;
     var duration = 700;
     var root;
+    var childrenName;
     
     // size of the diagram
     var viewerWidth = $(document).width()*0.95;
@@ -147,23 +148,23 @@ treeJSON = d3.json("testtestjson.json", function(error, treeData) {
         nameOutput(d);
     }
     
+    function getAllChildren(d){
+        for (var i = 0; i < d.children.length; i++){
+            if (!(d.children[i].children)){
+                childrenName.push(d.children[i].name);
+            }else{
+                getAllChildren(d.children[i]);   
+            }
+        }
+    }
+    
     function nameOutput(d){
         if(!d._children){
             if(!d.children){
                 var csvString = d.name;
             }else{
-                var childrenName = [];
-                getAllChildren(d);
-                function getAllChildren(d){
-                    for (var i = 0; i < d.children.length; i++){
-                        if (!(d.children[i].children)){
-                          childrenName.push(d.children[i].name);
-                        }else{
-                            getAllChildren(d.children[i]);   
-                        }
-                    }
-                
-                }
+                childrenName = [];
+                getAllChildren(d);    
   	            var csvString = childrenName;
             }
         	
