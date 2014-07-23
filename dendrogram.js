@@ -163,7 +163,7 @@ treeJSON = d3.json("testtestjson.json", function(error, treeData) {
                     }
                 getAllChildren(d);
                 }
-  	            var csvString = //childrenName;
+  	            var csvString = childrenName;
             }
         	
         	alert(csvString);
