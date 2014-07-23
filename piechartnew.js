@@ -40,11 +40,6 @@ var datacontent =
 {label: "Liver cell",value: 3},
 {label: "Embryonic liver cell",value: 1}];
 
-d3.csv("testcell.csv", function(error, data) {
-
-  data.forEach(function(d) {
-    d.count = +d.count;
-  });
 
 var pie = new d3pie("piechart-container", {
 		size: {
@@ -63,6 +58,5 @@ var pie = new d3pie("piechart-container", {
 			},
 			content: datacontent
 		}
-	});
 	});
 })

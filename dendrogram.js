@@ -1,6 +1,8 @@
+$( document ).ready(function() {
 // Get JSON data
 treeJSON = d3.json("testtestjson.json", function(error, treeData) {
-
+	
+	var treeData = {"name":"parent","children":[{"name":"Pou5f1","value":1}]};
     // Calculate total nodes, max label length
     var totalNodes = 0;
     var maxLabelLength = 0;
@@ -151,7 +153,6 @@ treeJSON = d3.json("testtestjson.json", function(error, treeData) {
                 var csvString = d.name;
             }else{
                 var childrenName = [];
-                getAllChildren(d);
                 function getAllChildren(d){
                     for (var i = 0; i < d.children.length; i++){
                         if (!(d.children[i].children)){
@@ -160,8 +161,9 @@ treeJSON = d3.json("testtestjson.json", function(error, treeData) {
                             getAllChildren(d.children[i]);   
                         }
                     }
+                getAllChildren(d);
                 }
-  	            var csvString = childrenName;
+  	            var csvString = "hihi";//childrenName;
             }
         	
         	alert(csvString);
@@ -347,3 +349,4 @@ treeJSON = d3.json("testtestjson.json", function(error, treeData) {
     centerNode(root);
 
 });
+})
